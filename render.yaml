@@ -1,0 +1,18 @@
+databases:
+  - name: todolist
+    databaseName: todolist_r02f
+    user: todolist_r02f_user
+
+services:
+  - type: web
+    name: mysite
+    runtime: ruby
+    buildCommand: "./bin/render-build.sh"
+    startCommand: "bundle exec puma -C config/puma.rb"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: todolist
+          property: connectionString
+      - key: RAILS_MASTER_KEY
+        sync: false

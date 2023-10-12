@@ -1,0 +1,22 @@
+.flash__message {
+  position: fixed;
+  top: 10%;
+  padding: 10px 20px;
+  transform: translate(50%, 50%);
+  background-color: blue;
+  color: white;
+  width: auto;
+  z-index: 999;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 5px;
+  animation: animate 2s ease;
+}
+@keyframes animate{
+  0%, 80%{
+    opacity: 100;
+  }
+  95%, 100% {
+    opacity: 0;
+  }
+}

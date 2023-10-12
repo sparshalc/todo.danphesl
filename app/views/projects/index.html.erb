@@ -1,0 +1,18 @@
+<div class="d-flex gap-4 justify-content-center text-align-center">
+  <h1>Projects </h1>
+  <%= link_to new_project_path, data: { turbo_frame: dom_id(Project.new)}, title: "Add New Project" do %>
+    <i class="bi bi-plus-square-fill" style="font-size: 2em;"></i>
+  <% end %>
+</div>
+<%= turbo_frame_tag Project.new%>
+<div id="projects">
+  <% @projects.each do |project| %>
+    <%= render project %>
+  <% end %>
+  <div class="text-end d-flex justify-content-end flex-column">
+    <i class="bi bi-person">  <%= current_user.email.split('@')[0].capitalize! %></i>
+    <%= button_to destroy_user_session_path, method: :delete, class: 'btn btn-danger' do %>
+      <i class="bi bi-box-arrow-right"></i>
+    <% end %>
+  </div>
+</div>

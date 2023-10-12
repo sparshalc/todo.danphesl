@@ -1,0 +1,4 @@
+<%= turbo_stream.update @todo do %>
+  <%= render 'todos/todo', todo: @todo, project: @project %>
+<% end %>
+<%= turbo_stream.prepend "alert", partial: "projects/flash" %>

@@ -1,0 +1,37 @@
+<%= turbo_frame_tag todo do %>
+  <div id="todo">
+    <div class="d-flex justify-content-between">
+      <div class="header flex-column">
+        <h2 class="<%= todo.completed? ? "text-decoration-line-through" : "" %>" style="color: white !important;"><%= todo.title%></h2>
+        <% if !todo.completed? %>
+          <p class="text-muted" style="color: white !important;">
+            <%= todo.description%>
+          </p>
+        <% else %>
+          <p class="text-muted" style="color: white !important;">
+            Completed: <%= time_ago_in_words(todo.completed_at)+ ' ago'%>
+          </p>
+        <% end %>
+      </div>
+      <div class="buttons">
+        <%= button_to [project, todo],
+                    method: :delete,
+                    class: "btn btn-danger" do %>
+          <i class="bi bi-trash"></i>
+        <% end %>
+        <% unless todo.completed? %>
+          <%= link_to [:edit, project, todo],
+                  class: "btn btn-success mt-1" do %>
+            <i class="bi bi-pen"></i>
+          <% end%>
+          <p>
+            <%= link_to complete_project_todo_path(project, todo), data: { 'turbo-method': :patch },class: "btn btn-success mt-1", method: :patch do  %>
+              <i class="bi bi-check2-all"></i>
+            <% end %>
+          </p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <hr>
+<% end %>
