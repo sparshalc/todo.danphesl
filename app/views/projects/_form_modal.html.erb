@@ -1,0 +1,16 @@
+<%= turbo_frame_tag "remote_modal", target: '_top' do %>
+  <div class="modal fade " id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" data-controller="bootstrap">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title fs-5" id="staticBackdropLabel" style="color: white;"><%= modal_title %> </h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="color: white !important;"></button>
+        </div>
+        <div class="modal-body">
+          <%= render form_partial %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>

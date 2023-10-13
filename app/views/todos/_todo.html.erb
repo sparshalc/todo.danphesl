@@ -21,7 +21,7 @@
         <% end %>
         <% unless todo.completed? %>
           <%= link_to [:edit, project, todo],
-                  class: "btn btn-success mt-1" do %>
+                  class: "btn btn-success mt-1", data: { controller: 'bs-modal' } do %>
             <i class="bi bi-pen"></i>
           <% end%>
           <p>

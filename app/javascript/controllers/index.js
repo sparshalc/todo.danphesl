@@ -4,6 +4,12 @@
 
 import { application } from "./application"
 
+import BootstrapController from "./bootstrap_controller"
+application.register("bootstrap", BootstrapController)
+
+import BsModalController from "./bs_modal_controller"
+application.register("bs-modal", BsModalController)
+
 import FlashMessagesController from "./flash_messages_controller"
 application.register("flash-messages", FlashMessagesController)
 

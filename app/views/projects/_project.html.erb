@@ -6,7 +6,7 @@
       <p> Created: <%= time_ago_in_words(project.created_at) + ' ago'%>  | <%= project.todos.count %> Todo's</p>
     </div>
     <div class="d-flex gap-1">
-      <p><%= link_to edit_project_path(project), class: 'btn btn-success' do %>
+      <p><%= link_to edit_project_path(project), data: { controller: 'bs-modal' }, class: 'btn btn-success' do %>
           <i class="bi bi-pen"></i>
         <% end %>
       </p>

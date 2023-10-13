@@ -1,19 +1,18 @@
-<hr>
-<%= form_with(model: project) do |form| %>
+<%= form_with(model: @project) do |form| %>
   <div>
     <%= form.hidden_field :user_id, value: current_user.id,id: 'todo_user_id',class: 'form-control mt-2' %>
+    <%= form.label :title, style: 'color: white;' %>
     <%= form.text_field :title, class: "form-control", placeholder: 'Enter title for your project.....' %>
-    <% if project.errors.any? %>
+    <% if @project.errors.any? %>
       <div class="text">
-        <% project.errors.full_messages_for(:title).each do |message| %>
+        <% @project.errors.full_messages_for(:title).each do |message| %>
           <div class="text-danger"><%= message %></div>
         <% end %>
       </div>
     <% end %>
   </div>
   <div>
-    <%= form.submit class: 'btn btn-success mt-2' %>
+    <%= form.submit class: 'btn btn-success mt-2', data: { action: 'click->bootstrap#submitEnd'} %>
     <%= link_to 'Cancel', root_path, class: 'btn btn-outline-white mt-2'%>
   </div>
 <% end %>
-<hr>

@@ -1,6 +1,6 @@
 <div class="d-flex gap-4 justify-content-center text-align-center">
   <h1>Projects </h1>
-  <%= link_to new_project_path, data: { turbo_frame: dom_id(Project.new)}, title: "Add New Project" do %>
+  <%= link_to new_project_path, data: { controller: 'bs-modal' }, title: "Add New Project" do %>
     <i class="bi bi-plus-square-fill" style="font-size: 2em;"></i>
   <% end %>
 </div>
