@@ -1,24 +1,43 @@
-# README
+# Todolist
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+![Alt text](image.png)
 
-Things you may want to cover:
+![Alt text](image-1.png)
 
-* Ruby version
+![Alt text](image-2.png)
 
-* System dependencies
+## Requirements
+- ruby "3.2.2"
+- rails 7.0.8
+- postgres
+- node >= 14.x
 
-* Configuration
+## Installation
+```
+git clone git@github.com:sparshalc/Todolist.git
+cd Todolist
+bundle install
+```
+## Database setup
+```
+## Development Env.
+rails db:create
+rails db:migrate
+rails db:seed (For Dummy Data's)
 
-* Database creation
+```
 
-* Database initialization
+## Assets installation
+```
+bundle i
+npm i
+```
 
-* How to run the test suite
+## Run the project
+```
+rails server || bin/dev(requires foreman)
+```
+And then visit the http://localhost:3000
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
-
-* ...
+* You need to install the chromedriver first to stimulate the feature specs.
