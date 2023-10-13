@@ -11,7 +11,6 @@ class TodosController < ApplicationController
     def show
       @todo = current_user.todos.find(params[:id])
     end
-    
   
     def update
       if @todo.update(todo_params)

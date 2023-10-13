@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: %i[ show edit update destroy ]
+  before_action :set_project, only: %i[ show edit update destroy assign_user ]
   before_action :verify_user, only: %i[ edit update destroy show ]
   def index
     @projects = current_user.projects.all.order('Created_at DESC')
@@ -7,6 +7,18 @@ class ProjectsController < ApplicationController
 
   def show
     @todos = @project.todos.all.order('Created_at DESC')
+    @users = User.where.not(id: current_user.id)
+  end
+
+  def assign_user
+    selected_user_id = params[:selected_user]
+    selected_user_email = User.find(selected_user_id).email
+    if @project.update(user_id: selected_user_id)
+      flash[:success] = "Project assigned to the #{selected_user_email.split('@')[0].capitalize! }"
+    else
+      flash[:error] = "Failed to assign the project to the selected user."
+    end
+    redirect_to root_path
   end
 
   def new
