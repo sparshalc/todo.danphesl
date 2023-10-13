@@ -10,8 +10,5 @@ application.register("flash-messages", FlashMessagesController)
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
-import ProgressBarController from "./progress_bar_controller"
-application.register("progress-bar", ProgressBarController)
-
 import ProgressController from "./progress_controller"
 application.register("progress", ProgressController)
