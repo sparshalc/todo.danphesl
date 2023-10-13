@@ -1,15 +1,17 @@
-25.times do
+2.times do
   Project.create(
-    title: Faker::Lorem.sentence(word_count: 5)
+    title: Faker::Lorem.sentence(word_count: 5),
+    user_id: 1
   )
 end
 
 project_ids = Project.pluck(:id)
 
-50.times do
+5.times do
   Todo.create(
     title: Faker::Lorem.sentence(word_count: 5),
     description: Faker::Lorem.paragraph(sentence_count: 5),
-    project_id: project_ids.sample
+    project_id: project_ids.sample,
+    user_id: 1
   )
 end

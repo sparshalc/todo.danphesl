@@ -6,7 +6,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    @todos = current_user.todos.order('created_at DESC')
+    @todos = current_user.todos.all.order('created_at DESC')
   end
 
   def new
