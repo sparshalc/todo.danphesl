@@ -8,4 +8,5 @@ class Todo < ApplicationRecord
   def completed?
     !completed_at.nil?
   end
+
 end

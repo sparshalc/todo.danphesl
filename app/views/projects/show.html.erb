@@ -21,12 +21,7 @@
       <%= render @todos, project: @project %>
     <% end %>
     <%# --------------------------------------------------------------%>
-    <% total_todos = @todos.count %>
-    <% completed_count = @todos.count { |x| x.completed? } %>
-    <% completed_count %>
-    <div class="progress">
-      <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100" style="width: <%= (completed_count.to_f / total_todos.to_f ) * 100 %>%"></div>
-    </div>
+    <%= render 'todos/progressbar',todos: @todos %>
     <%# --------------------------------------------------------------%>
   </div>
 </main>

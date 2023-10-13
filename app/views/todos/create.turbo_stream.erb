@@ -3,3 +3,6 @@
 <% end %>
 <%= turbo_stream.update Todo.new, "" %>
 <%= turbo_stream.prepend "alert", partial: "projects/flash" %>
+<%= turbo_stream.replace "todo-list" do %>
+  <%= render 'todos/progressbar',  todos: @todos %>
+<% end %>

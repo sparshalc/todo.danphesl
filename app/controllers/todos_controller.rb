@@ -25,6 +25,7 @@ class TodosController < ApplicationController
     end
 
     def create
+      @todos = @project.todos.all
       @todo = @project.todos.build(todo_params)
   
       if @todo.save
@@ -39,6 +40,7 @@ class TodosController < ApplicationController
 
     def destroy
       @todo.destroy
+      @todos = @project.todos.all
     
       respond_to do |format|
         format.html { redirect_to root_path, notice: "Todo was successfully destroyed." }
@@ -47,8 +49,9 @@ class TodosController < ApplicationController
     end
 
     def complete
-      @project = Project.find(params[:project_id])
+
       @todo = @project.todos.find(params[:id])
+      @todos = @project.todos.all
   
       if @todo.update(completed_at: Time.now)
         respond_to do |format|
