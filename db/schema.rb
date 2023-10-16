@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_10_12_172012) do
+ActiveRecord::Schema[7.1].define(version: 2023_10_16_050513) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -19,6 +19,8 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_12_172012) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
+    t.integer "assigned_by"
+    t.boolean "assigned_status", default: false
   end
 
   create_table "todos", force: :cascade do |t|
@@ -29,6 +31,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_12_172012) do
     t.datetime "updated_at", null: false
     t.datetime "completed_at"
     t.integer "user_id"
+    t.integer "assigned_by"
     t.index ["project_id"], name: "index_todos_on_project_id"
   end
 

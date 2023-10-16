@@ -1,6 +1,8 @@
 <%= form_with(model: @project) do |form| %>
   <div>
     <%= form.hidden_field :user_id, value: current_user.id,id: 'todo_user_id',class: 'form-control mt-2' %>
+    <%= form.hidden_field :assigned_by, value: current_user.id,id: 'assigned_user_id',class: 'form-control mt-2' %>
+    <%= form.hidden_field :assigned_status %>
     <%= form.label :title, style: 'color: white;' %>
     <%= form.text_field :title, class: "form-control", placeholder: 'Enter title for your project.....' %>
     <% if @project.errors.any? %>

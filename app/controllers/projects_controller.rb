@@ -13,7 +13,7 @@ class ProjectsController < ApplicationController
   def assign_user
     selected_user_id = params[:selected_user]
     selected_user_email = User.find(selected_user_id).email
-    if @project.update(user_id: selected_user_id)
+    if @project.update(user_id: selected_user_id, assigned_status: true)
       flash[:success] = "Project assigned to the #{selected_user_email.split('@')[0].capitalize! }"
     else
       flash[:error] = "Failed to assign the project to the selected user."
@@ -69,7 +69,7 @@ class ProjectsController < ApplicationController
     end
 
     def project_params
-      params.require(:project).permit(:title, :user_id)
+      params.require(:project).permit(:title, :user_id, :assigned_by, :assigned_status)
     end
 
     def verify_user
