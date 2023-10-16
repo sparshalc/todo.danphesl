@@ -10,6 +10,10 @@ class ProjectsController < ApplicationController
     @users = User.where.not(id: current_user.id)
   end
 
+  def assigned
+    @projects = Project.where(assigned_by: current_user.id, assigned_status: true).order(created_at: :desc)
+  end
+
   def assign_user
     selected_user_id = params[:selected_user]
     selected_user_email = User.find(selected_user_id).email

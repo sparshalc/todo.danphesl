@@ -1,0 +1,26 @@
+<div class="container">
+  <% if @projects.present? %>
+    <h1>
+      Assigned Todos <small> (<%= current_user.email %>)</small>
+    </h1>
+    <hr>
+    <% @projects.each do |x| %>
+      <h3><%= link_to x.title, project_path(x) %></h3>
+      <p>Assigned to: <%= x.user.email %></p>
+      <% x.todos.each do |todo| %>
+        <% if todo.completed? %>
+          <p><%= todo.title %> <span class="badge rounded-pill text-bg-success">Completed</span></p>
+        <% else %>
+          <p><%= todo.title %> <span class="badge rounded-pill text-bg-danger">Not Completed</span></p>
+        <% end %>
+      <% end %>
+      <hr>
+    <% end %>
+    <%= link_to 'Return Home', root_path, class: 'btn btn-primary mt-2'%>
+  <% else %>
+    <div class="text-center">
+      <h3 class="text-muted" style="color: white !important;">No Todo's Assigned till date!</h3>
+      <%= link_to 'Return Home', root_path, class: 'btn btn-primary mt-2'%>
+    </div>
+  <% end %>
+</div>
