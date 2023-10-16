@@ -5,7 +5,7 @@
       <h1 class="fw-normal"><%= link_to project.title , project, data: { turbo_frame: '_top'} %></h1>
       <p> Created: <%= time_ago_in_words(project.created_at) + ' ago'%>  | <%= project.todos.count %> Todo's  </p>
       <% if project.assigned_status %>
-        <p> Assigned by: <%= User.find(project.assigned_by).email %></p>
+        <p> Assigned by: <b><%= User.find(project.assigned_by).email %></b></p>
       <% end %>
     </div>
     <div class="d-flex gap-1">
