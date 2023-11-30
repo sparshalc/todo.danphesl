@@ -6,7 +6,7 @@
   <small>
     Created: <%= time_ago_in_words(@project.created_at) + ' ago'%>
   </small>
-  <% if @todos.present? || User.count > 1 %>
+  <% if @todos.present? && User.count > 1 && !@project.assigned_status %>
     <p class="d-flex">
       <%= form_tag assign_user_project_path, method: :put do %>
         <div class="field">

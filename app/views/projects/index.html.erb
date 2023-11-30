@@ -10,7 +10,7 @@
     <%= render project %>
   <% end %>
   <div class="text-end d-flex justify-content-end flex-column">
-    <i class="bi bi-person">  <%= current_user.email.split('@')[0].capitalize! %></i>
+    <i class="bi bi-person">  <%= current_user.email.split('@')[0].capitalize! %>  |  <%= link_to 'Assigned', assigned_projects_path %></i>
     <%= button_to destroy_user_session_path, method: :delete, class: 'btn btn-danger' do %>
       <i class="bi bi-box-arrow-right"></i>
     <% end %>
